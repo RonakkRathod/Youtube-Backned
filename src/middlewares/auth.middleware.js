@@ -7,13 +7,15 @@ import { User } from "../Models/user.models.js";
 // create  a middleware to verify JWT token
 export const verifyJWT = asyncHandler(async (req ,res ,next) => {
   try {
-     const token =  req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer","")
+   const authHeader = req.header("Authorization") || "";
+   const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+   const token =  req.cookies?.accessToken || bearerToken
   
      if(!token){
         throw new ApiError(401, "Unauthorized request")
      }
       
-     const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+   const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
   
     const user =  await User.findById(decodedToken?._id).select("-password -refreshToken")
   

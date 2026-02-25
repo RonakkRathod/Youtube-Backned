@@ -81,7 +81,7 @@ const getAllVideos = asyncHandler(async(req,res) => {
       }
 )
 
-  const videoAggregate =  await Video.aggregate(pipeline);
+  const videoAggregate = Video.aggregate(pipeline);
 
   const options = {
     page: parseInt(page,10),
