@@ -29,6 +29,25 @@ import dashboardRouter from "./Routes/dashboard.routes.js";
 
 // http://localhost:5000/api/v1/users/register
 
+// Root route
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "🎬 Welcome to YouTube Backend API",
+        version: "1.0.0",
+        documentation: "/api/v1/healthcheck",
+        endpoints: {
+            users: "/api/v1/users",
+            videos: "/api/v1/video",
+            comments: "/api/v1/comment",
+            likes: "/api/v1/likes",
+            subscriptions: "/api/v1/subscriptions",
+            tweets: "/api/v1/tweet",
+            playlists: "/api/v1/playlist",
+            dashboard: "/api/v1/dashboard"
+        }
+    });
+});
 
 //routes declaration
 app.use("/api/v1/users",userRouter)
