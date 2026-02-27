@@ -8,11 +8,12 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://youtubefrontend.vercel.app",
-      "https://youtubefrontend-61i44jy9a-ronakkrathods-projects.vercel.app",
-      "http://localhost:3000"
+      'https://youtubefrontend-k6co0mrou-ronakkrathods-projects.vercel.app',
+      'https://youtubefrontend.vercel.app',
     ],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
 
