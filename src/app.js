@@ -7,8 +7,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: true,
-    credentials: true
+    origin: [
+      "https://youtubefrontend.vercel.app",
+      "https://youtubefrontend-61i44jy9a-ronakkrathods-projects.vercel.app",
+      "http://localhost:3000"
+    ],
+    credentials: true,
   })
 );
 
