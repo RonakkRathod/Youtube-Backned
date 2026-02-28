@@ -7,7 +7,7 @@ const app = express();
 
 app.use(
   cors({
-    origin:"https://youtubeclone.live",
+    origin: ["https://youtubeclone.live", "https://www.youtubeclone.live"],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
