@@ -7,10 +7,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      'https://youtubefrontend-k6co0mrou-ronakkrathods-projects.vercel.app',
-      'https://youtubefrontend.vercel.app',
-    ],
+    origin:"https://youtubeclone.live",
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
